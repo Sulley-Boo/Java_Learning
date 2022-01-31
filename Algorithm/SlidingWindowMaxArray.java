@@ -21,13 +21,12 @@ public class Test {
      * 请实现一个函数。 输入:整型数组arr，窗口大小为w。
      * 输出:一个长度为n-w+1的数组res，res[i]表示每一种窗口状态下的 以本题为例，结果应该
      * 返回{5,5,5,4,6,7}
-     *
+     * <p>
      * 窗口只能右边界或左边界向右滑的情况下，维持窗口内部最大值或者最小值快速更新的结构。
-     *
      */
 
-    public static int[] getMaxWindow(int[] arr, int w) {
-        //滑动窗口获得每个窗口的最大值
+    public static int[] getMaxWindow_Method1(int[] arr, int w) {
+        //方法一：滑动窗口获得每个窗口的最大值
         int[] res = new int[arr.length + 1 - w];
         int index = 0;
         LinkedList<Integer> deque = new LinkedList<>(); //使用双端队列来存储信息(数组下标)
@@ -47,6 +46,56 @@ public class Test {
         return res;
     }
 
+    public static int[] getMaxWindow_Method2(int[] arr, int w) {
+        //方法二：使用优先权队列
+        int[] res = new int[arr.length + 1 - w];
+        int index = 0;
+        PriorityQueue<int[]> pq = new PriorityQueue<>(new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[0] != o2[0] ? o2[0] - o1[0] : o2[1] - o1[1];
+            }
+        });
+        for (int i = 0; i < arr.length; i++) {
+            pq.offer(new int[]{arr[i], i});
+            while (pq.peek()[1] <= i - w) {
+                pq.poll();
+            }
+            if (i >= w - 1) {
+                res[index++] = pq.peek()[0];
+            }
+        }
+        return res;
+    }
+
+    public static int[] getMaxWindow_Method3(int[] nums, int k) {
+        //方法三：分块+预处理
+        int n = nums.length;
+        int[] prefixMax = new int[n];
+        int[] suffixMax = new int[n];
+        for (int i = 0; i < n; ++i) {
+            if (i % k == 0) {
+                prefixMax[i] = nums[i];
+            }
+            else {
+                prefixMax[i] = Math.max(prefixMax[i - 1], nums[i]);
+            }
+        }
+        for (int i = n - 1; i >= 0; --i) {
+            if (i == n - 1 || (i + 1) % k == 0) {
+                suffixMax[i] = nums[i];
+            } else {
+                suffixMax[i] = Math.max(suffixMax[i + 1], nums[i]);
+            }
+        }
+
+        int[] ans = new int[n - k + 1];
+        for (int i = 0; i <= n - k; ++i) {
+            ans[i] = Math.max(suffixMax[i], prefixMax[i + k - 1]);
+        }
+        return ans;
+    }
+
     public static void printArray(int[] arr) {
         //打印数组
         for (int i = 0; i != arr.length; i++) {
@@ -56,10 +105,14 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        int[] arr = {4, 3, 5, 4, 3, 3, 6, 7};
+        int[] arr = {9, 10, 9, -7, -4, -8, 2, -6};
 //        int[] arr = {1, 3, -1, -3, 5, 3, 6, 7};
-        int w = 3;
-        int[] res = getMaxWindow(arr, w);
-        printArray(res);
+        int w = 5;
+        int[] res1 = getMaxWindow_Method1(arr, w);
+        int[] res2 = getMaxWindow_Method2(arr, w);
+        int[] res3 = getMaxWindow_Method3(arr, w);
+        printArray(res1);
+        printArray(res2);
+        printArray(res3);
     }
 }
