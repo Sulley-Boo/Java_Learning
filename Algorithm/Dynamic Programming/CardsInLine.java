@@ -21,16 +21,24 @@ public class Test {
 
     //方法一:暴力递归求解
     public static int firstHand(int[] arr, int l, int r) {
+        //先手函数
+        //当前该你拿，arr[l...r]
+        //返回你的最好分数
         if (l == r) {
             return arr[l];
         }
+        //两种决策，拿最左边的或者最右边的纸牌，然后在(l+1,r)上或者(l,r-1)上后手获得最好分数
         return Math.max((arr[l] + secondHand(arr, l + 1, r)), arr[r] + secondHand(arr, l, r - 1));
     }
 
     public static int secondHand(int[] arr, int l, int r) {
+        //后手函数
+        //当前不该你拿，对方在arr[l...r]
+        //返回你的最好分数
         if (l == r) {
             return 0;
         }
+        //两种决策，对方拿走最左边或者最右边的纸牌，然后在(l+1,r)上或者(l,r-1)上先手，由于对方拿走的是最优选择，我方只能拿最差的选择
         return Math.min(firstHand(arr, l + 1, r), firstHand(arr, l, r - 1));
     }
 
