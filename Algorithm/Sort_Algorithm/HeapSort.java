@@ -20,6 +20,7 @@ public class Test {
 
 
     public static void heapSort(int[] arr) {
+        //时间复杂度O(n*logn),额外空间复杂度O(1)
         if (arr == null || arr.length < 2) {
             return;
         }
