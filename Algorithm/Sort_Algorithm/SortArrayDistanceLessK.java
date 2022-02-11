@@ -14,6 +14,7 @@ public class Test {
      *
      */
     public static void sortedArrDistanceLessK(int[] arr, int k) {
+        //时间复杂度O(n*logk)
         PriorityQueue<Integer> heap = new PriorityQueue<>();//优先级队列不加其他条件，就是小根堆
         int index = 0;
         for (; index < Math.min(arr.length, k); index++) {
