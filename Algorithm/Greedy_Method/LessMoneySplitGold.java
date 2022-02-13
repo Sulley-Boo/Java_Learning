@@ -2,7 +2,7 @@ package com.javatest;
 
 import java.util.PriorityQueue;
 
-public class Test {
+public class LessMoneySplitGold {
     /**
      * 一块金条切成两半，是需要花费和长度数值一样的铜板的。比如长度为20的金
      * 条，不管切成长度多大的两半，都要花费20个铜板。
