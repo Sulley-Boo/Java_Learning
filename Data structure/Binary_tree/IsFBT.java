@@ -2,7 +2,7 @@ package com.javatest;
 
 import java.util.LinkedList;
 
-public class Test {
+public class IsFBT {
 
     /**
      * 判断一颗二叉树是满二叉树（Full Binary Tree）？
