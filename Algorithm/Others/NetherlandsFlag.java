@@ -1,6 +1,6 @@
 package com.javatest;
 
-public class Test {
+public class NetherlandsFlag {
     /**
      * 荷兰国旗问题
      * 问题一
