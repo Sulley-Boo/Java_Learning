@@ -1,6 +1,6 @@
 package com.javatest;
 
-public class Test {
+public class CardsInLine {
     /**
      * 排成一条线的纸牌博弈问题
      * 【题目】
