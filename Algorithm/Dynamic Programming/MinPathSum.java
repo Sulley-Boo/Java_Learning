@@ -1,7 +1,7 @@
 package com.javatest;
 
 
-public class Test {
+public class MinPathSum {
     /**
      * 矩阵的最小路径和
      * 【题目】
