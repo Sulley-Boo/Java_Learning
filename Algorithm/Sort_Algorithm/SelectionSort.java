@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Test {
+public class SelectionSort {
     /**
      * 选择排序算法实现。
      */
