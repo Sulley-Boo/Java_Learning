@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class Test {
+public class SortArrayDistanceLessK {
     /**
      * 堆排序扩展题目
      * 已知一个几乎有序的数组，几乎有序是指，如果把数组排好顺序的话，每个元
