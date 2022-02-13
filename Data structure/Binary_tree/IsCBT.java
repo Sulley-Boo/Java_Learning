@@ -2,7 +2,7 @@ package com.javatest;
 
 import java.util.LinkedList;
 
-public class Test {
+public class IsCBT {
 
     /**
      *
