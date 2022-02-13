@@ -2,7 +2,7 @@ package com.javatest;
 
 import java.util.*;
 
-public class Test {
+public class MaxHappy {
     /**
      * 派对的最大快乐值
      * 员工信息的定义如下:
