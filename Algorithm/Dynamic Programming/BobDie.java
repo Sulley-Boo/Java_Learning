@@ -1,7 +1,7 @@
 package com.javatest;
 
 
-public class Test {
+public class BobDie {
     /**
      * Bob的生存概率
      * 【题目】
