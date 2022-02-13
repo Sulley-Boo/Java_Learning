@@ -2,7 +2,7 @@ package com.javatest;
 
 import java.util.*;
 
-public class Test {
+public class PrintAllPermutations {
     /**
      * 打印一个字符串的全部排列
      * 打印一个字符串的全部排列，要求不要出现重复的排列
