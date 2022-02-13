@@ -4,7 +4,7 @@ import javax.print.attribute.standard.NumberOfDocuments;
 import javax.sound.midi.Soundbank;
 import java.util.*;
 
-public class Test {
+public class PreInPosTraversal {
     /**
      * 二叉树节点结构
      * class Node<V>{
