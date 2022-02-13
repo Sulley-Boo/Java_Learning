@@ -4,7 +4,7 @@ import javax.print.DocFlavor;
 import java.util.LinkedList;
 import java.util.Stack;
 
-public class Test {
+public class IsBST {
 
     /**
      * 判断一颗二叉树是二叉搜索树（Binary Search Tree）？
