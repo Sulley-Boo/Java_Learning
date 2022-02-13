@@ -3,7 +3,7 @@ package com.javatest;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Code09_SerializeAndReconstructTree {
+public class SerializeAndReconstructTree {
 
 	public static class Node {
 		public int value;
