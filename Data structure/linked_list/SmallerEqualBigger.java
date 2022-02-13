@@ -2,7 +2,7 @@ package com.javatest;
 
 import java.util.*;
 
-public class Test {
+public class SmallerEqualBigger {
     /**
      * 将单向链表按某值划分成左边小、中间相等、右边大的形式
      * 【题目】给定一个单链表的头节点head，节点的值类型是整型，再给定一个整
