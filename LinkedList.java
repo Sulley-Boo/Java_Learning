@@ -3,7 +3,7 @@ package com.javatest;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class Test {
+public class LinkedList {
     /*
     * Java LinkedList:
     * Java LinkedList（链表） 类似于 ArrayList，是一种常用的数据容器。
