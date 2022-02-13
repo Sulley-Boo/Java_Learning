@@ -2,7 +2,7 @@ package com.javatest;
 
 import java.util.*;
 
-public class Test {
+public class UnionFindSet {
     /**
      * 并查集的结构和实现
      */
