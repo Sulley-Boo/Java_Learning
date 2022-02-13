@@ -1,6 +1,6 @@
 package com.javatest;
 
-public class Code10_PaperFolding {
+public class PaperFolding {
 
 	public static void printAllFolds(int N) {
 		printProcess(1, N, true);
