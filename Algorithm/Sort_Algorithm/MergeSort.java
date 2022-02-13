@@ -1,6 +1,6 @@
 package com.javatest;
 
-public class Test {
+public class MergeSort {
     /**
      * 归并排序算法实现。
      */
