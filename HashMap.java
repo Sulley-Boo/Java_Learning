@@ -2,7 +2,7 @@ package com.javatest;
 
 import java.util.*;
 
-public class Test {
+public class HashMap {
     /*
     * HashMap and HashSet
     * 1.HashMap
