@@ -2,7 +2,7 @@ package com.javatest;
 
 import java.util.*;
 
-public class Test {
+public class SlidingWindowMaxArray {
     /**
      * 由一个代表题目，引出一种结构
      * 【题目】
