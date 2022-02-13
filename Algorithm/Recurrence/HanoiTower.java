@@ -3,7 +3,7 @@ package com.javatest;
 import javax.print.DocFlavor;
 import java.util.*;
 
-public class Test {
+public class HanoiTower {
     /**
      * 汉诺塔问题
      * 打印n层汉诺塔从最左边移动到最右边的全部过程
