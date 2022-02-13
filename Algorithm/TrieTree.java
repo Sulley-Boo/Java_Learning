@@ -1,6 +1,6 @@
 package com.javatest;
 
-public class Test {
+public class TrieTree {
     /**
      * 前缀树算法实现。
      * <p>
