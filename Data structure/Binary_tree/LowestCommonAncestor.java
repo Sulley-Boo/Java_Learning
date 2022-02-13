@@ -4,7 +4,7 @@ import javax.print.DocFlavor;
 import java.util.LinkedList;
 import java.util.Stack;
 
-public class Test {
+public class LowestCommonAncestor {
 
     /**
      * 给定两个二叉树的节点node1和node2，找到他们的最低公共祖先节点。
