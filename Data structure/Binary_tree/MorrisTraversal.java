@@ -2,7 +2,7 @@ package com.javatest;
 
 import java.util.*;
 
-public class Test {
+public class MorrisTraversal {
     /**
      * 二叉树的Morris遍历
      * 通过利用原树中大量空闲指针的方式，达到节省空间的目的
