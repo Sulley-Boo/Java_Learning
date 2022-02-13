@@ -3,7 +3,7 @@ package com.javatest;
 
 import java.util.Arrays;
 
-public class Test {
+public class HeapSort {
     /**
      * 堆排序算法实现。
      * 堆中索引为index结点的左孩子为2*index+1,右孩子为2*index+2,父节点为(index-1)/2。
