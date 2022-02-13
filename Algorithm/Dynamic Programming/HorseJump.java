@@ -1,7 +1,7 @@
 package com.javatest;
 
 
-public class Test {
+public class HorseJump {
     /**
      * 象棋中马的跳法
      * 【题目】
