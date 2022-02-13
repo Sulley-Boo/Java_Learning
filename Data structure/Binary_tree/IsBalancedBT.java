@@ -2,7 +2,7 @@ package com.javatest;
 
 import java.util.LinkedList;
 
-public class Test {
+public class IsBalancedBT {
 
     /**
      * 判断一颗二叉树是平衡二叉树（Balance Binary Tree）？
