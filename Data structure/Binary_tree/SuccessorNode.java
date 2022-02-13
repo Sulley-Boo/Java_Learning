@@ -4,7 +4,7 @@ import javax.print.DocFlavor;
 import java.util.LinkedList;
 import java.util.Stack;
 
-public class Test {
+public class SuccessorNode {
 
     /**
      *
