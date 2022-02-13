@@ -2,7 +2,7 @@ package com.javatest;
 
 import java.util.*;
 
-public class Test {
+public class RobotWalk {
     /**
      * 机K器MP人算达法到扩指展定题位目置二方法数
      * 【题目】
