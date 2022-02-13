@@ -2,7 +2,7 @@ package com.javatest;
 
 import java.util.Arrays;
 
-public class Test {
+public class RadixSort {
     /**
      * 基数排序
      * <p>
