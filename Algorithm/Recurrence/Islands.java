@@ -2,7 +2,7 @@ package com.javatest;
 
 import java.util.*;
 
-public class Test {
+public class Islands {
     /**
      * 岛问题
      * 【题目】
