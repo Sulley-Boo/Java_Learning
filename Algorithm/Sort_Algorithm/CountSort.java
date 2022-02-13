@@ -2,7 +2,7 @@ package com.javatest;
 
 import java.util.Arrays;
 
-public class Test {
+public class CountSort {
     /**
      * 计数排序
      */
