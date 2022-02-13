@@ -2,7 +2,7 @@ package com.javatest;
 
 import java.util.*;
 
-public class Test {
+public class TreeMaxWidth {
     /**
      * 二叉树层次遍历（宽度优先遍历）
      * 求一棵二叉树的最大宽度（哪一层结点数最多）
