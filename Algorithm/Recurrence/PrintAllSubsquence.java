@@ -3,7 +3,7 @@ package com.javatest;
 import javax.print.DocFlavor;
 import java.util.*;
 
-public class Test {
+public class PrintAllSubsquence {
     /**
      * 打印一个字符串的全部子序列，包括空字符串
      *
