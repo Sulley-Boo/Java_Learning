@@ -2,7 +2,7 @@ package com.javatest;
 
 import java.util.*;
 
-public class Test {
+public class CopyListWithRandom {
     /**
      * 复制含有随机指针节点的链表
      * 【题目】一种特殊的单链表节点类描述如下
