@@ -1,7 +1,7 @@
 package com.javatest;
 
 
-public class Test {
+public class InsertionSort {
     /**
      * 插入排序算法实现。
      */
