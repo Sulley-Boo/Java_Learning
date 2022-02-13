@@ -1,6 +1,6 @@
 package com.javatest;
 
-public class Test {
+public class BubbleSort {
     /**
      * 冒泡排序算法实现。
      */
