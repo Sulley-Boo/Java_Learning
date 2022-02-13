@@ -2,7 +2,7 @@ package com.javatest;
 
 import java.util.*;
 
-public class Test {
+public class ReverseList {
     /**
      * 反转单链表和双向链表
      * 【题目】 分别实现反转单向链表和反转双向链表的函数
