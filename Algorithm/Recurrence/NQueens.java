@@ -79,5 +79,6 @@ public class NQueens {
 		System.out.println(ways2(n));
 		end = System.currentTimeMillis();
 		System.out.println("cost time: " + (end - start) + "ms");
+		
     }
 }
