@@ -27,6 +27,9 @@ public class SlidingWindowMaxArray {
 
     public static int[] getMaxWindow_Method1(int[] arr, int w) {
         //方法一：滑动窗口获得每个窗口的最大值
+        if (arr == null || w < 1 || arr.length < w) {
+            return null;
+        }
         int[] res = new int[arr.length + 1 - w];
         int index = 0;
         LinkedList<Integer> deque = new LinkedList<>(); //使用双端队列来存储信息(数组下标)
