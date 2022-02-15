@@ -116,6 +116,6 @@ public class SlidingWindowMaxArray {
         int[] res3 = getMaxWindow_Method3(arr, w);
         printArray(res1);
         printArray(res2);
-        printArray(res3);
+        printArray(res3); 
     }
 }
