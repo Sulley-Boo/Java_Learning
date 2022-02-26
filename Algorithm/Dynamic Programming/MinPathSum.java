@@ -1,7 +1,6 @@
 package com.javatest;
 
-
-public class MinPathSum {
+public class Test {
     /**
      * 矩阵的最小路径和
      * 【题目】
@@ -112,11 +111,32 @@ public class MinPathSum {
         return arr[less - 1];
     }
 
+    //动态规划法优化（空间压缩）
+    public static int minPathSum5(int[][] m) {
+        int[] dp = new int[m[0].length];
+        dp[m[0].length - 1] = m[m.length - 1][m[0].length - 1];
+        for (int j = m[0].length - 2; j >= 0;j--) {
+            dp[j] = m[m.length - 1][j] + dp[j + 1];
+        }
+        for (int i = m.length - 2;i >= 0;i--) {
+            for (int j = m[0].length - 1;j >= 0;j--) {
+                if (j == m[0].length - 1) {
+                    dp[j] = dp[j] + m[i][j];
+                } else {
+                    dp[j] = Math.min(dp[j], dp[j + 1]) + m[i][j];
+                }
+            }
+        }
+        return dp[0];
+    }
+
     // for test
-    public static int[][] generateRandomMatrix(int rowSize, int colSize) {
-        if (rowSize < 0 || colSize < 0) {
+    public static int[][] generateRandomMatrix(int maxRowSize, int maxColSize) {
+        if (maxRowSize < 0 || maxColSize < 0) {
             return null;
         }
+        int rowSize = (int) (Math.random() * maxRowSize + 1);
+        int colSize = (int) (Math.random() * maxColSize + 1);
         int[][] result = new int[rowSize][colSize];
         for (int i = 0; i != result.length; i++) {
             for (int j = 0; j != result[0].length; j++) {
@@ -133,16 +153,19 @@ public class MinPathSum {
         System.out.println(minPathSum2(m));
         System.out.println(minPathSum3(m));
         System.out.println(minPathSum4(m));
-
-        int[][] m1 = generateRandomMatrix(3, 4);
-        printMatrix(m1);
+        System.out.println(minPathSum5(m));
+        
+        int[][] m1 = generateRandomMatrix(20, 20);
         int testTime = 10000;
-        System.out.println("测试开始...");
+        System.out.println("测试进行中...");
         for (int i = 0;i < testTime;i++)  {
-            if (minPathSum1(m1) != minPathSum2(m1) || minPathSum1(m1) != minPathSum3(m1) || minPathSum1(m1) != minPathSum4(m1)) {
-                System.out.println("出错了！");
+            if (minPathSum1(m1) != minPathSum2(m1) ||
+                    minPathSum2(m1) != minPathSum3(m1) ||
+                    minPathSum3(m1) != minPathSum4(m1) ||
+                    minPathSum4(m1) != minPathSum5(m1)) {
+                System.out.println("测试失败!");
+                break;
             }
         }
-
     }
 }
