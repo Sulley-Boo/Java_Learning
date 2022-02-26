@@ -27,6 +27,16 @@ public class Kruskal {
             }
             return node;
         }
+        
+        //另一种查找结点的头部（父结点）的方法
+//         private Node findFather(Node node) {
+//             Node father = fatherMap.get(node);
+//             if (father != node) {
+//                 father = findFather(father);
+//             }
+//             fatherMap.put(node, father);
+//             return father;
+//         }
 
         public boolean isSameSet(Node a, Node b) {
             return findHead(a) == findHead(b);
