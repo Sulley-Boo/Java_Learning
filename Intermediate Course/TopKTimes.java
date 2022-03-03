@@ -35,6 +35,9 @@ public class TopKTimes {
 
     // 方法1，使用大根堆
     public static void printTopKAndRank1(String[] arr, int topK) {
+        if (arr == null || arr.length == 0 || topK < 1) {
+            return;
+        }
         Map<String, Integer> map = new HashMap<>();
         for (String str : arr) {
             if (!map.containsKey(str)) {
@@ -56,6 +59,9 @@ public class TopKTimes {
 
     //方法2，使用小根堆
     public static void printTopKAndRank2(String[] arr, int topK) {
+        if (arr == null || arr.length == 0 || topK < 1) {
+            return;
+        }
         Map<String, Integer> map = new HashMap<>();
         for (String str : arr) {
             if (!map.containsKey(str)) {
