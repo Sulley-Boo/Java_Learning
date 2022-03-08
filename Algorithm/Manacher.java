@@ -121,6 +121,55 @@ public class Manacher {
         }
         return dp[0][str.length() - 1];
     }
+    
+    //使用Manacher算法获取最长回文子串并打印
+    public static int[] maxLongestPS(String s) {
+        //返回最长回文子串的半径和中心点
+        if (s == null || s.length() < 1) {
+            return new int[]{0, 0};
+        }
+        char[] chs = manacherString(s);
+        int[] pArr = new int[chs.length];
+        int R = -1;
+        int C = -1;
+        int index = 0;
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < pArr.length; i++) {
+            pArr[i] = i < R ? Math.min(R - i, pArr[2 * C - i]) : 1;
+            while (i + pArr[i] < pArr.length && i - pArr[i] > -1) {
+                if (chs[i + pArr[i]] == chs[i - pArr[i]]) {
+                    pArr[i]++;
+                } else {
+                    break;
+                }
+            }
+            if (i + pArr[i] > R) {
+                R = i + pArr[i];
+                C = i;
+            }
+            if (max < pArr[i]) {
+                max = pArr[i];
+                index = i;
+            }
+        }
+        return new int[]{max, index};
+    }
+
+    public static String getLongestPS(String s) {
+        //返回最长回文子串
+        char[] chs = manacherString(s);
+        int[] radius = maxLongestPS(s);
+        int r = radius[0];
+        int c = radius[1];
+        char[] ans = new char[r - 1];
+        int index = 0;
+        for (int i = c - (r - 1); i <= c + r - 1; i++) {
+            if (chs[i] != '#') {
+                ans[index++] = chs[i];
+            }
+        }
+        return new String(ans);
+    }
 
     public static void main(String[] args) {
         String str1 = "abc1234321ab";
