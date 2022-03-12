@@ -1,5 +1,7 @@
 package com.javatest;
 
+import java.util.Arrays;
+
 public class SubsequenceAndSubstring {
     /**
      * 动态规划相似题型：
@@ -11,7 +13,7 @@ public class SubsequenceAndSubstring {
      * 关于数组：
      * 最长递增子序列问题
      */
-    
+
     /*==========最长公共子序列==========*/
     public static int LCSubsequence(String s1, String s2) {
         int[][] dp = new int[s1.length() + 1][s2.length() + 1];
@@ -58,7 +60,6 @@ public class SubsequenceAndSubstring {
                     } else {
                         dp[i][j] = dp[i + 1][j - 1] == j - i - 1 ? j - i + 1 : dp[i + 1][j - 1];
                     }
-
                 }
             }
         }
@@ -133,7 +134,7 @@ public class SubsequenceAndSubstring {
         }
         return index;
     }
-    
+
     public static void main(String[] args) {
         String s1 = "abcdefgh";
         String s2 = "acdfhaba";
@@ -147,5 +148,6 @@ public class SubsequenceAndSubstring {
         System.out.println(LPSubsequence(s6));
         int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
         System.out.println(LISubsequence1(nums));
+        System.out.println(LISubsequence2(nums));
     }
 }
