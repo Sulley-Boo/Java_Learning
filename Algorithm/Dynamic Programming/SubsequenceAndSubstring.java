@@ -43,6 +43,8 @@ public class SubsequenceAndSubstring {
     }
 
     /*==========最长回文子串==========*/
+    // 解法1：动态规划
+    // 解法2：Manacher算法
     public static int LPSubstring(String s) {
         int[][] dp = new int[s.length()][s.length()];
         for (int j = 0; j < s.length(); j++) {
@@ -80,7 +82,8 @@ public class SubsequenceAndSubstring {
     }
 
     /*==========最长递增子序列问题==========*/
-    public static int LISubsequence(int[] nums) {
+    // 解法1,时间复杂度O(N^2)
+    public static int LISubsequence1(int[] nums) {
         int[] dp = new int[nums.length];
         dp[0] = 1;
         int res = 1;
@@ -96,6 +99,41 @@ public class SubsequenceAndSubstring {
         return res;
     }
 
+    // 解法2
+    // 利用动态规划 + 二分查找
+    // 时间复杂度O(NlogN)
+    public static int LISubsequence2(int[] nums) {
+        int[] dp = new int[nums.length];
+        int[] ends = new int[nums.length];
+        Arrays.fill(ends, Integer.MAX_VALUE);
+        int res = 1;
+        dp[0] = 1;
+        ends[0] = nums[0];
+        for (int i = 1; i < dp.length; i++) {
+            int index = nearestIndex(ends, nums[i]);
+            ends[index] = nums[i];
+            dp[i] = index + 1;
+            res = Math.max(res, dp[i]);
+        }
+        return res;
+    }
+
+    public static int nearestIndex(int[] ends, int value) {
+        int index = -1;
+        int l = 0;
+        int r = ends.length - 1;
+        while (l <= r) {
+            int mid = l + ((r - l) >> 1);
+            if (ends[mid] >= value) {
+                index = mid;
+                r = mid - 1;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return index;
+    }
+    
     public static void main(String[] args) {
         String s1 = "abcdefgh";
         String s2 = "acdfhaba";
@@ -108,6 +146,6 @@ public class SubsequenceAndSubstring {
         String s6 = "abhcdeefxihiaojkjidhfiedceba";
         System.out.println(LPSubsequence(s6));
         int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
-        System.out.println(LISubsequence(nums));
+        System.out.println(LISubsequence1(nums));
     }
 }
