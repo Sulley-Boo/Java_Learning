@@ -12,6 +12,7 @@ public class SubsequenceAndSubstring {
      * 最长回文子序列问题
      * 关于数组：
      * 最长递增子序列问题
+     * 最长不连续子集问题(连续指的是相邻两个数差的绝对值 <= 1)
      */
 
     /*==========最长公共子序列==========*/
@@ -135,6 +136,32 @@ public class SubsequenceAndSubstring {
         return index;
     }
 
+    /*==========最长不连续子集问题==========*/
+    //美团笔试原题
+    public static int longestDiscontinuousSubset(int[] arr) {
+        Arrays.sort(arr);
+        int[] dp = new int[arr.length];
+        dp[0] = 1;
+        dp[1] = arr[1] - arr[0] <= 1 ? 1 : 2;
+        for (int i = 2; i < dp.length; i++) {
+            if (arr[i] - arr[i - 1] > 1) { // 当前数和上一个数不连续，可以要
+                dp[i] = dp[i - 1] + 1;
+            } else if (arr[i] - arr[i - 1] == 0) { // 当前数和上一个数连续且相等，不能要
+                dp[i] = dp[i - 1];
+            } else { // 当前数和上一个数连续且差一
+                // 两种决策
+                // 不要当前数，dp[i - 1]
+                // 要当前数，第i-1位上的数不能要，第i-1位往前和arr[i - 1]相等的数都不能要
+                int tmp = i - 2;
+                while (tmp > 0 && arr[tmp] == arr[tmp + 1]) {
+                    tmp--;
+                }
+                dp[i] = Math.max(dp[tmp] + 1, dp[i - 1]);
+            }
+        }
+        return dp[dp.length - 1];
+    }
+    
     public static void main(String[] args) {
         String s1 = "abcdefgh";
         String s2 = "acdfhaba";
