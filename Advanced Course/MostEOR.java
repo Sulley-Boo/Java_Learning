@@ -14,11 +14,9 @@ public class MostEOR {
             return 0;
         }
         int[] dp = new int[arr.length];
-        dp[0] = arr[0] == 0 ? 1 : 0;
         int xor = 0;
         HashMap<Integer, Integer> map = new HashMap<>(); // 记录异或值出现的位置
         map.put(0, -1);
-        int res = dp[0];
         for (int i = 0; i < dp.length; i++) {
             xor ^= arr[i];
             if (map.containsKey(xor)) {
@@ -28,9 +26,8 @@ public class MostEOR {
                 dp[i] = Math.max(dp[i], dp[i - 1]);
             }
             map.put(xor, i);
-            res = Math.max(res, dp[i]);
         }
-        return res;
+        return dp[dp.length - 1];
     }
 
     // for test
