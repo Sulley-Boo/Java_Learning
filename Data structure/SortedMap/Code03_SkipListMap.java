@@ -30,7 +30,7 @@ public class Code03_SkipListMap {
 		private static final double PROBABILITY = 0.5;
 		private SkipListNode<K, V> head;
 		private int size;
-		private int maxLevel;
+		private int maxLevel; 
 
 		public SkipListMap() {
 			head = new SkipListNode<K, V>(null, null);
