@@ -31,7 +31,7 @@ public class SubsequenceAndSubstring {
     }
 
     /*==========最长公共子串==========*/
-    public static int LCSubstring(String s1, String s2) {
+    public static int LCSubstring1(String s1, String s2) {
         int[][] dp = new int[s1.length() + 1][s2.length() + 1];
         int res = 0;
         for (int i = s1.length() - 1; i >= 0; i--) {
@@ -45,6 +45,38 @@ public class SubsequenceAndSubstring {
         return res;
     }
 
+    // 动态规划法
+    // 仅使用有限个变量进行空间压缩
+    // 额外空间复杂度O(1)
+    public static int LCSubstring2(String s1, String s2) {
+        int m = s1.length();
+        int n = s2.length();
+        int res = 0;
+        int row = 0, col = n - 1;
+        int len = 0;
+        while (row < m) {
+            int i = row;
+            int j = col;
+            len = 0;
+            while (i < m && j < n) {
+                if (s1.charAt(i) != s2.charAt(j)) {
+                    len = 0;
+                } else {
+                    len++;
+                }
+                res = Math.max(res, len);
+                i++;
+                j++;
+            }
+            if (col > 0) {
+                col--;
+            } else {
+                row++;
+            }
+        }
+        return res;
+    }
+    
     /*==========最长回文子串==========*/
     // 解法1：动态规划
     // 解法2：Manacher算法
