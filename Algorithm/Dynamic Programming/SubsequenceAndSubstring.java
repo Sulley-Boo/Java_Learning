@@ -29,6 +29,35 @@ public class SubsequenceAndSubstring {
         }
         return dp[0][0];
     }
+    
+    // 动态规划，空间压缩
+    public static int LCSubsequence1(String s1, String s2) {
+        int m = Math.min(s1.length(), s2.length());
+        int n = m == s1.length() ? s2.length() : s1.length();
+        String small = m == s1.length() ? s1 : s2;
+        String big = small.equals(s1) ? s2 : s1;
+        int[] dp = new int[m];
+        int tmp1 = 0;
+        int tmp2 = 0;
+        dp[0] = small.charAt(0) == big.charAt(0) ? 1 : 0;
+        for (int i = 1; i < m; i++) {
+            dp[i] = small.charAt(i) == big.charAt(0) ? 1 : dp[i - 1];
+        }
+        for (int i = 1; i < n; i++) {
+            tmp1 = dp[0]; // 之后可能还会用到dp[0]，记录下来
+            dp[0] = small.charAt(0) == big.charAt(i) ? 1 : dp[0];
+            for (int j = 1; j < m; j++) {
+                tmp2 = dp[j]; // 之后可能还会用到dp[j]，记录下来
+                if (big.charAt(i) != small.charAt(j)) {
+                    dp[j] = Math.max(dp[j - 1], dp[j]);
+                } else {
+                    dp[j] = tmp1 + 1;
+                }
+                tmp1 = tmp2;
+            }
+        }
+        return dp[m - 1];
+    }
 
     /*==========最长公共子串==========*/
     public static int LCSubstring1(String s1, String s2) {
