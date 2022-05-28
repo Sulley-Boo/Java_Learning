@@ -17,6 +17,7 @@ public class RabinKarp {
      * 因此，对于base和mod值的选取非常重要。
      */
 
+    // 使用BigInteger来处理编码值过大问题
     public static int getIndexOf(String s1, String s2) {
         if (s2.length() > s1.length()) {
             return -1;
@@ -48,6 +49,44 @@ public class RabinKarp {
             index++;
         }
         if (encrypt1.equals(encrypt2)) { // 判断索引位置m-n是否匹配
+            return index;
+        }
+        return -1;
+    }
+    
+    // 普通做法，不使用BigInteger，无法处理匹配的字符串过长的情况，因为有很大可能性会引发哈希冲突
+    public static int strStr(String s1, String s2) {
+        if (s2.length() > s1.length()) {
+            return -1;
+        }
+        if (s2.length() == 0) {
+            return 0;
+        }
+        int m = s1.length();
+        int n = s2.length();
+        int base = 29;
+        int mod = 1000000007;
+        long encrypt1 = 0;
+        long encrypt2 = 0;
+        for (int i = 0; i < n; i++) {
+            encrypt1 = (encrypt1 * base + (s1.charAt(i) - 'a')) % mod;
+        }
+        for (int i = 0; i < n; i++) {
+            encrypt2 = (encrypt2 * base + (s2.charAt(i) - 'a')) % mod;
+        }
+        int index = 0;
+        while (index < m - n) {
+            if (encrypt1 == encrypt2) {
+                return index;
+            }
+            encrypt1 -= ((s1.charAt(index) - 'a') * (long) Math.pow(base, n - 1) % mod);
+            if (encrypt1 < 0) {
+                encrypt1 += mod;
+            }
+            encrypt1 = ((encrypt1 * base + s1.charAt(index + n) - 'a')) % mod;
+            index++;
+        }
+        if (encrypt1 == encrypt2) {
             return index;
         }
         return -1;
