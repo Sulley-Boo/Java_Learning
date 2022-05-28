@@ -44,7 +44,7 @@ public class RabinKarp {
             // encrypt1去掉头部字符的编码，加上尾部字符的编码
             BigInteger bigInteger = new BigInteger(String.valueOf((s1.charAt(index) - 'a') * (long) Math.pow(31, n - 1)));
             encrypt1 = encrypt1.subtract(bigInteger.mod(mod));
-            encrypt1 = ((encrypt1.multiply(base).add(new BigInteger(String.valueOf(s1.charAt(index + n) - 'a'))))).mod(mod);
+            encrypt1 = (encrypt1.multiply(base).add(new BigInteger(String.valueOf(s1.charAt(index + n) - 'a')))).mod(mod);
             index++;
         }
         if (encrypt1.equals(encrypt2)) { // 判断索引位置m-n是否匹配
