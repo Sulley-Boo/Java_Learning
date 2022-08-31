@@ -48,18 +48,22 @@ public class SpecialSequence {
         return dp[i][pre][prePre];
     }
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
+    // 方法1：记忆化搜索
+    // n过大时会栈溢出
+    public static int ways1(int n) {
         int[][][] dp = new int[n + 1][10][10];
-        int[][][] dp2 = new int[n + 1][10][10];
         for (int i = 0; i < n + 1; i++) {
             for (int j = 0; j < 10; j++) {
                 for (int k = 0; k < 10; k++) {
-                    dp2[i][j][k] = -1;
+                    dp[i][j][k] = -1;
                 }
             }
         }
+        return process(n, 0, 0, 0, dp);
+    }
+
+    public static int ways2(int n) {
+        int[][][] dp = new int[n + 1][10][10];
         for (int pre = 0; pre < 10; pre++) {
             for (int prePre = 0; prePre < 10; prePre++) {
                 dp[n][pre][prePre] = 1;
@@ -104,8 +108,22 @@ public class SpecialSequence {
                 }
             }
         }
-        System.out.println(process(n, 0, 0, 0, dp2));
-        System.out.println(dp[0][0][0]);
+        return dp[0][0][0];
+    }
+
+    public static void main(String[] args) {
+        System.out.println(ways1(5000));
+        System.out.println(ways2(5000));
+//        System.out.println(ways1(100000)); // 栈溢出
+        System.out.println(ways2(100000));
+        System.out.println("测试开始...");
+        for (int i = 1; i < 5000; i++) {
+            if (ways1(i) != ways2(i)) {
+                System.out.println("测试失败!");
+                break;
+            }
+        }
+        System.out.println("测试结束!");
     }
 }
 
