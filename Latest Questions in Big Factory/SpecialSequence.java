@@ -62,6 +62,7 @@ public class SpecialSequence {
         return process(n, 0, 0, 0, dp);
     }
 
+    // 方法2：动态规划法
     public static int ways2(int n) {
         int[][][] dp = new int[n + 1][10][10];
         for (int pre = 0; pre < 10; pre++) {
