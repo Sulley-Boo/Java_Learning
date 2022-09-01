@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+public class EliminateGame {
 
     /**
      * 阿里笔试第二题，2022年8月29日
