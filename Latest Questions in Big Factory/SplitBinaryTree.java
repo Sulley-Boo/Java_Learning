@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Main {
+public class SplitBinaryTree {
 
     /**
      * B站笔试第三题，2022年9月1日。
