@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class MaxValue {
+public class ChangeNodeMaxValue {
 
     /**
      * B站笔试第二题，2022年9月1日。
